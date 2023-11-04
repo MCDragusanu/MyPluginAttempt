@@ -274,7 +274,7 @@ The final test report is sent to [CodeCov][codecov] for better results visualiza
 
 If your plugin provides complex user interfaces, you should consider covering them with tests and the functionality they utilize.
 
-[IntelliJ UI Test Robot][gh:intellij-ui-test-robot] allows you to write and execute UI tests within the IntelliJ IDE running instance.
+[IntelliJ UI Test Robot][gh:intellij-components-test-robot] allows you to write and execute UI tests within the IntelliJ IDE running instance.
 You can use the [XPath query language][xpath] to find components in the currently available IDE view.
 Once IDE with `robot-server` has started, you can open the `http://localhost:8082` page that presents the currently available IDEA UI components hierarchy in HTML format and use a simple `XPath` generator, which can help test your plugin's interface.
 
@@ -282,7 +282,7 @@ Once IDE with `robot-server` has started, you can open the `http://localhost:808
 > 
 > Run IDE for UI tests using predefined *Run IDE for UI Tests* and then *Run Tests* configurations or by invoking the `./gradlew runIdeForUiTests` and `./gradlew check` Gradle tasks.
 
-Check the UI Test Example project you can use as a reference for setting up UI testing in your plugin: [intellij-ui-test-robot/ui-test-example][gh:ui-test-example].
+Check the UI Test Example project you can use as a reference for setting up UI testing in your plugin: [intellij-components-test-robot/components-test-example][gh:components-test-example].
 
 ```kotlin
 class MyUITest {
@@ -296,7 +296,7 @@ class MyUITest {
 }
 ```
 
-![UI Testing][file:ui-testing.png]
+![UI Testing][file:components-testing.png]
 
 A dedicated [Run UI Tests](.github/workflows/run-ui-tests.yml) workflow is available for manual triggering to run UI tests against three different operating systems: macOS, Windows, and Linux.
 Due to its optional nature, this workflow isn't set as an automatic one, but this can be easily achieved by changing the `on` trigger event, like in the [Build](.github/workflows/build.yml) workflow file.
@@ -336,7 +336,7 @@ Within the default project structure, there is a `.run` directory provided conta
 | Run Plugin           | Runs [`:runIde`][gh:gradle-intellij-plugin-runIde] Gradle IntelliJ Plugin task. Use the *Debug* icon for plugin debugging.                                                    |
 | Run Verifications    | Runs [`:runPluginVerifier`][gh:gradle-intellij-plugin-runPluginVerifier] Gradle IntelliJ Plugin task to check the plugin compatibility against the specified IntelliJ IDEs.   |
 | Run Tests            | Runs [`:test`][gradle:lifecycle-tasks] Gradle task.                                                                                                                           |
-| Run IDE for UI Tests | Runs [`:runIdeForUiTests`][gh:intellij-ui-test-robot] Gradle IntelliJ Plugin task to allow for running UI tests within the IntelliJ IDE running instance.                     |
+| Run IDE for UI Tests | Runs [`:runIdeForUiTests`][gh:intellij-components-test-robot] Gradle IntelliJ Plugin task to allow for running UI tests within the IntelliJ IDE running instance.                     |
 | Run Qodana           | Runs [`:runInspections`][gh:gradle-qodana-plugin] Gradle Qodana Plugin task. Starts Qodana inspections in a Docker container and serves generated report on `localhost:8080`. |
 
 > **Note**
@@ -543,9 +543,9 @@ That approach gives more possibilities for testing and debugging pre-releases, f
 - [Gradle IntelliJ Plugin Documentation][gh:gradle-intellij-plugin-docs]
 - [IntelliJ Platform Explorer][jb:ipe]
 - [JetBrains Marketplace Quality Guidelines][jb:quality-guidelines]
-- [IntelliJ Platform UI Guidelines][jb:ui-guidelines]
+- [IntelliJ Platform UI Guidelines][jb:components-guidelines]
 - [JetBrains Marketplace Paid Plugins][jb:paid-plugins]
-- [Kotlin UI DSL][docs:kotlin-ui-dsl]
+- [Kotlin UI DSL][docs:kotlin-components-dsl]
 - [IntelliJ SDK Code Samples][gh:code-samples]
 - [JetBrains Platform Slack][jb:slack]
 - [JetBrains Platform Twitter][jb:twitter]
@@ -556,7 +556,7 @@ That approach gives more possibilities for testing and debugging pre-releases, f
 [docs]: https://plugins.jetbrains.com/docs/intellij?from=IJPluginTemplate
 [docs:intellij-platform-kotlin-oom]: https://plugins.jetbrains.com/docs/intellij/using-kotlin.html#incremental-compilation
 [docs:intro]: https://plugins.jetbrains.com/docs/intellij/intellij-platform.html?from=IJPluginTemplate
-[docs:kotlin-ui-dsl]: https://plugins.jetbrains.com/docs/intellij/kotlin-ui-dsl-version-2.html?from=IJPluginTemplate
+[docs:kotlin-components-dsl]: https://plugins.jetbrains.com/docs/intellij/kotlin-ui-dsl-version-2.html?from=IJPluginTemplate
 [docs:kotlin]: https://plugins.jetbrains.com/docs/intellij/using-kotlin.html?from=IJPluginTemplate
 [docs:kotlin-stdlib]: https://plugins.jetbrains.com/docs/intellij/using-kotlin.html?from=IJPluginTemplate#kotlin-standard-library
 [docs:plugin.xml]: https://plugins.jetbrains.com/docs/intellij/plugin-configuration-file.html?from=IJPluginTemplate
@@ -581,7 +581,7 @@ That approach gives more possibilities for testing and debugging pre-releases, f
 [file:run-logs.png]: ./.github/readme/run-logs.png
 [file:settings-secrets.png]: ./.github/readme/settings-secrets.png
 [file:template_cleanup.yml]: ./.github/workflows/template-cleanup.yml
-[file:ui-testing.png]: ./.github/readme/ui-testing.png
+[file:components-testing.png]: ./.github/readme/ui-testing.png
 [file:use-this-template.png]: ./.github/readme/use-this-template.png
 
 [gh:actions]: https://help.github.com/en/actions
@@ -595,10 +595,10 @@ That approach gives more possibilities for testing and debugging pre-releases, f
 [gh:gradle-intellij-plugin-runIde]: https://plugins.jetbrains.com/docs/intellij/tools-gradle-intellij-plugin.html#tasks-runide
 [gh:gradle-intellij-plugin-runPluginVerifier]: https://plugins.jetbrains.com/docs/intellij/tools-gradle-intellij-plugin.html#tasks-runpluginverifier
 [gh:gradle-qodana-plugin]: https://github.com/JetBrains/gradle-qodana-plugin
-[gh:intellij-ui-test-robot]: https://github.com/JetBrains/intellij-ui-test-robot
+[gh:intellij-components-test-robot]: https://github.com/JetBrains/intellij-ui-test-robot
 [gh:kover]: https://github.com/Kotlin/kotlinx-kover
 [gh:releases]: https://github.com/JetBrains/intellij-platform-plugin-template/releases
-[gh:ui-test-example]: https://github.com/JetBrains/intellij-ui-test-robot/tree/master/ui-test-example
+[gh:components-test-example]: https://github.com/JetBrains/intellij-ui-test-robot/tree/master/ui-test-example
 
 [gradle]: https://gradle.org
 [gradle:build-cache]: https://docs.gradle.org/current/userguide/build_cache.html
@@ -620,7 +620,7 @@ That approach gives more possibilities for testing and debugging pre-releases, f
 [jb:quality-guidelines]: https://plugins.jetbrains.com/docs/marketplace/quality-guidelines.html
 [jb:slack]: https://plugins.jetbrains.com/slack
 [jb:twitter]: https://twitter.com/JBPlatform
-[jb:ui-guidelines]: https://jetbrains.github.io/ui
+[jb:components-guidelines]: https://jetbrains.github.io/ui
 
 [codecov]: https://codecov.io
 [github-actions-skip-ci]: https://github.blog/changelog/2021-02-08-github-actions-skip-pull-request-and-push-workflows-with-skip-ci/
