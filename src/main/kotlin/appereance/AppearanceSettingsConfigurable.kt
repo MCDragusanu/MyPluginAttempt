@@ -1,5 +1,6 @@
 package appereance
 
+import com.intellij.openapi.application.ApplicationManager
 import com.intellij.openapi.diagnostic.thisLogger
 import com.intellij.openapi.editor.colors.EditorColorsManager
 import com.intellij.openapi.options.Configurable
@@ -33,6 +34,9 @@ import javax.swing.JComponent
             current?.editorFontSize = it.getEditorFontSize() ?: 13
             thisLogger().warn("current state updated from UI layer")
             EditorColorsManager.getInstance().updateGlobalState(current!!)
+            ApplicationManager.getApplication().runWriteAction {
+
+            }
         }
     }
 
