@@ -1,12 +1,17 @@
 package org.jetbrains.plugins.template
 
 import com.intellij.ide.highlighter.XmlFileType
+import com.intellij.openapi.application.ApplicationManager
+import com.intellij.openapi.application.writeAction
+import com.intellij.openapi.command.CommandProcessor
 import com.intellij.openapi.components.Service
 import com.intellij.openapi.components.service
+import com.intellij.openapi.diagnostic.thisLogger
+import com.intellij.openapi.editor.EditorModificationUtil
+import com.intellij.openapi.editor.colors.EditorColorsManager
 import com.intellij.psi.xml.XmlFile
 import com.intellij.testFramework.TestDataPath
 import com.intellij.testFramework.fixtures.BasePlatformTestCase
-import com.intellij.util.PsiErrorElementUtil
 
 
 
@@ -14,17 +19,8 @@ import com.intellij.util.PsiErrorElementUtil
 class MyPluginTest : BasePlatformTestCase() {
 
     fun testXMLFile() {
-       /* val psiFile = myFixture.configureByText(XmlFileType.INSTANCE, "<foo>bar</foo>")
-        val xmlFile = assertInstanceOf(psiFile, XmlFile::class.java)
 
-        assertFalse(PsiErrorElementUtil.hasErrors(project, xmlFile.virtualFile))
 
-        assertNotNull(xmlFile.rootTag)
-
-        xmlFile.rootTag?.let {
-            assertEquals("foo", it.name)
-            assertEquals("bar", it.value.text)
-        }*/
     }
 
     fun testRename() {
@@ -32,7 +28,7 @@ class MyPluginTest : BasePlatformTestCase() {
     }
 
     fun testProjectService() {
-        val projectService = project.service<Service>()
+
 
 
     }

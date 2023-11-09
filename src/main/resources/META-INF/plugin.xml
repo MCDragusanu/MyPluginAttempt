@@ -12,20 +12,28 @@
 
     <extensions defaultExtensionNs="com.intellij">
         <applicationService
-                serviceImplementation="AppSettingState"/>
+                serviceImplementation="example.AppSettingState"/>
     </extensions>
 
     <extensions defaultExtensionNs="com.intellij">
         <applicationService
-                serviceImplementation="state.FontSettingsState"/>
+                serviceImplementation="appereance.AppearanceSettingsState"/>
     </extensions>
+
 
     <extensions defaultExtensionNs="com.intellij">
         <applicationConfigurable
                 parentId="tools"
-                instance="AppSettingsConfigurable"
+                instance="example.AppSettingsConfigurable"
                 id="org.intellij.sdk.settings.AppSettingsConfigurable"
-                displayName="Edit IDE Appereance"/>
+                displayName="Edit IDE Appearance"/>
+    </extensions>
+    <extensions defaultExtensionNs="com.intellij">
+        <applicationConfigurable
+                parentId="appearance"
+                instance="appereance.AppearanceSettingsConfigurable"
+                id="appereance.AppearanceSettingsConfigurable"
+                displayName="Edit IDE Appearance"/>
     </extensions>
 
 

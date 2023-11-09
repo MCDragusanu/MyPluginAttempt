@@ -1,10 +1,12 @@
-import com.esotericsoftware.minlog.Log
+package example
+
 import com.intellij.openapi.application.ApplicationManager
 import com.intellij.openapi.components.PersistentStateComponent
 import com.intellij.openapi.components.State
 import com.intellij.openapi.components.Storage
 
 import com.intellij.openapi.diagnostic.Logger
+import com.intellij.openapi.editor.colors.EditorColorsManager
 import com.intellij.util.xmlb.XmlSerializerUtil
 
 //The data model itself
@@ -19,6 +21,7 @@ class AppSettingState:PersistentStateComponent<AppSettingState> {
     var content:String = ""
     override fun getState(): AppSettingState? {
         logger.info("getState Called")
+
         return this
     }
 
@@ -26,7 +29,7 @@ class AppSettingState:PersistentStateComponent<AppSettingState> {
         XmlSerializerUtil.copyBean(state, this);
     }
 
-    fun getInstance():AppSettingState{
+    fun getInstance(): AppSettingState {
         return ApplicationManager.getApplication().getService(AppSettingState::class.java)
     }
 }

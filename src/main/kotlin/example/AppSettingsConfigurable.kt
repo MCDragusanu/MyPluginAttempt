@@ -1,4 +1,8 @@
+package example
+
+import com.intellij.openapi.diagnostic.thisLogger
 import com.intellij.openapi.options.Configurable
+
 import javax.swing.JComponent
 
 
@@ -27,10 +31,12 @@ internal class AppSettingsConfigurable : Configurable {
     }
 
     override fun apply() {
+
         val current = AppSettingState().getInstance()
          mySettingsComponent?.let{
              current.content = it.textField.text
          }
+
 
     }
 
